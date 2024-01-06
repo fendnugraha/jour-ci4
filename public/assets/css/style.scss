@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+$myprimary-color: rgb(52, 83, 255);
+$mysecondary-color: rgb(85, 85, 85);
+$mysuccess-color: rgb(0, 199, 99);
+$mywarning-color: rgb(252, 217, 103);
+$mydanger-color: rgb(250, 38, 84);
+$mywhite-color: rgba(255,255,255,0.8);
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: rgb(233, 233, 233);
+
+  #login-failed-alert {
+    bottom: 10vh;
+    right: 2%;
+    width: 25vw;
+  }
+
+  table tr{
+    font-size: 0.7em;
+  }
+}
+
+.nav-link {
+  font-weight: 700;
+}
+
+header {
+
+  #brand-name-title {
+    font-family: 'caveat';
+    font-size: 1.3em;
+    // text-transform: lowercase;
+  }
+
+  .dropdown{
+      a#user-email-addr-dropdown{
+        background-color: rgb(71, 74, 255);
+        text-decoration: none;
+        padding: 5px 15px 5px 15px;
+        border-radius: 25px;
+        border: 0;
+        transition: 0.2s;
+
+        #user-email-addr {
+          color: white;
+        }
+
+        &:hover {
+          background-color: rgb(56, 59, 255);
+
+          #user-email-addr {
+          color: white;
+        }
+        }
+      }
+
+      .dropdown-menu {
+        background-color: rgba(71, 74, 255, 1);
+
+        a.dropdown-item {
+          color: white;
+        }
+
+        hr {
+          background-color: white;
+        }
+
+        a.dropdown-item:hover {
+          background-color: rgb(56, 59, 255);
+        }
+      }
+  }
+}
+
+.card {
+  // background-color: rgba($color: #000000, $alpha: 0.2);
+  border-radius: 25px;
+  border: none;
+  box-shadow: 1px 1px 5px rgba($color: #000000, $alpha: 0.2);
+}
+
+.card-icon-db{
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  color: $mysecondary-color;
+  font-size: 1.7em;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a.setting-link {
+  text-decoration: none;
+  color: black;
+}
+
+.card.card-page-title,
+.card.card-setting-menu {
+  padding: 5px 40px 5px 40px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(99, 99, 246);
+  font-weight: bold;
+  border-radius: 0 0px 30px 30px;
+
+  p,
+  h4 {
+    margin: 0;
+    // letter-spacing: 1px;
+  }
+}
+
+a.setting-icon-action {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  height: 13rem;
+  width: 13rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.2);
+
+  h1 {
+    font-size: 3.5rem;
+  }
+}
+
+// Dashboard GRID
+.dashboard-area {
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr 2fr 1.5fr;
+  grid-template-areas: 
+  "assets liabilities equity finance"
+  "kas kas piutang finance"
+  "kas kas hutang finance"
+  "revenue hpp profit expense";
+  gap: 15px;
+
+  @mixin myprimary-color {
+    background-color: $myprimary-color;
+    color: $mywhite-color;
+  }
+
+  @mixin mysecondary-color {
+    background-color: $mysecondary-color;
+    color: $mywhite-color;
+  }
+
+  @mixin mydanger-color {
+    background-color: $mydanger-color;
+    color: $mywhite-color;
+  }
+
+ &-assets {
+  @include myprimary-color;
+  grid-area: assets;
+
+  span {
+    font-size: 2.1em;
+    font-weight: 700;
+  }
+ }
+ &-liabilities {
+  @include myprimary-color;
+  grid-area: liabilities;
+
+  span {
+    font-size: 2.1em;
+    font-weight: 700;
+  }
+ } 
+ &-equity {
+  @include myprimary-color;
+  grid-area: equity;
+
+  span {
+    font-size: 2.1em;
+    font-weight: 700;
+  }
+ } 
+ &-kas {
+  @include myprimary-color;
+  grid-area: kas;
+
+  .account-value {
+    span {
+      font-size: 3.3em;
+      color: $mywarning-color;
+    }
+  }
+  .card-cash-list {
+    overflow: auto;
+
+    .card-cash-list { 
+      &-items{
+      background-color: rgb(121, 141, 255);
+      padding: 15px;
+      border-radius: 25px;
+
+      span{
+      font-size: 1em;
+      }
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    font-size: 0.9em;
+    height: 100%;
+
+    tr, th, td {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.425);
+      padding: 10px;
+    }
+  }
+
+  span {
+    font-size: 2em;
+    font-weight: 700;
+  }
+ } 
+ &-piutang {
+  @include mysecondary-color;
+  grid-area: piutang;
+
+  h3 {
+    font-weight: 700;
+    color: $mywarning-color
+  }
+  
+ } 
+ &-hutang {
+  @include mysecondary-color;
+  grid-area: hutang;
+
+  h3 {
+    font-weight: 700;
+    color: $mywarning-color
+  }
+ }
+ &-revenue {
+  @include mydanger-color;
+  grid-area: revenue;
+ }
+ &-hpp {
+  @include mydanger-color;
+  grid-area: hpp;
+ } 
+ &-profit {
+  @include mydanger-color;
+  grid-area: profit;
+ } 
+ &-expense {
+  @include mydanger-color;
+  grid-area: expense;
+ } 
+ &-finance {
+  grid-area: finance;
+  background-color: #ddd;
+
+  .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .card-finance-indicator {
+    background-color: white;
+    padding: 5px 15px 5px 15px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // height: 80px;
+
+    &-icon {
+      background-color: $myprimary-color;
+      border-radius: 50%;
+      color: wheat;
+      height: 40px;
+      width: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+
+      span {
+        font-size: 1.4em;
+        font-weight: 700;
+      }
+    }
+
+    h5 {
+      font-size: 0.8em;
+    }
+  }
+}
+ } 
+}
+
+@media (max-width: 991.98px) {
+  .dashboard-area {
+    display: flex;
+    flex-direction: column;
+  }
+}
+// End Dashboard GRID
